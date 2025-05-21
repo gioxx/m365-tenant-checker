@@ -1,8 +1,13 @@
+import os
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import requests
 
-app = Flask(__name__, static_folder='frontend', static_url_path='')
+# Use static path that works both in Docker and on Render
+STATIC_FOLDER = os.path.join(os.path.dirname(__file__), '..', 'frontend')
+STATIC_FOLDER = os.path.abspath(STATIC_FOLDER)
+
+app = Flask(__name__, static_folder=STATIC_FOLDER, static_url_path='')
 CORS(app)
 
 @app.route('/')

@@ -2,14 +2,16 @@ FROM python:3.13-slim
 
 WORKDIR /app
 
+# Copy backend and frontend
+COPY backend/ /app/backend/
+COPY frontend/ /app/frontend/
+
+# Install requirements
 COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY backend/app.py ./app.py
-COPY frontend ./frontend
-
-ENV FLASK_APP=app.py
-ENV FLASK_RUN_HOST=0.0.0.0
-
+# Expose Flask port
 EXPOSE 5000
-CMD ["flask", "run"]
+
+# Run the app
+CMD ["gunicorn", "backend.app:app"]
