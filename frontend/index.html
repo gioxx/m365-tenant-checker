@@ -87,36 +87,67 @@
       text-decoration: underline;
     }
 
-    .dark-mode body {
+    body.dark-mode {
       background-color: #121212 !important;
       color: #eee !important;
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.05) !important;
     }
 
-    .dark-mode input,
-    .dark-mode button {
+    body.dark-mode input,
+    body.dark-mode button {
       background-color: #1e1e1e !important;
       color: #fff !important;
       border: 1px solid #444 !important;
     }
 
-    .dark-mode button {
+    body.dark-mode button {
       background-color: #007bff !important;
       color: white !important;
     }
 
-    .dark-mode footer {
+    body.dark-mode footer {
       color: #aaa !important;
     }
 
-    .dark-mode footer a {
+    bodybody.dark-mode footer a {
       color: #80bfff !important;
+    }
+
+    body {
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    body.dark-mode {
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    .theme-toggle-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .theme-toggle-btn svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    .theme-toggle-btn:hover {
+      opacity: 0.8;
     }
   </style>
 </head>
 
 <body>
   <div style="text-align: right;">
+    <button onclick="toggleTheme()" class="theme-toggle-btn" id="theme-toggle" title="Toggle light/dark mode">
+      <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path
+          d="M12 3a1 1 0 011 1v1a1 1 0 01-2 0V4a1 1 0 011-1zm5.657 2.343a1 1 0 010 1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 0zM21 11a1 1 0 010 2h-1a1 1 0 010-2h1zM6.343 5.757a1 1 0 011.414 0l.707.707A1 1 0 017.05 7.878l-.707-.707a1 1 0 010-1.414zM12 17a5 5 0 100-10 5 5 0 000 10zm0 2a7 7 0 100-14 7 7 0 000 14zm5.657.343a1 1 0 00-1.414 0l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 000-1.414zM4 11a1 1 0 100 2H3a1 1 0 100-2h1zm1.636 6.364a1 1 0 011.414 1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707zM12 19a1 1 0 011 1v1a1 1 0 01-2 0v-1a1 1 0 011-1z" />
+      </svg>
+    </button>
     <button onclick="toggleTheme()" id="theme-toggle"
       style="width:auto; padding:6px 12px; font-size:14px; margin-bottom:10px;">🌙 Dark Mode</button>
   </div>
@@ -158,8 +189,8 @@
     }
 
     function toggleTheme() {
-      const isDark = document.documentElement.classList.toggle('dark-mode');
-      document.getElementById('theme-toggle').textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+      const isDark = document.body.classList.toggle('dark-mode');
+      document.getElementById('theme-icon').innerHTML = isDark ? '<path d=\"M12 3a1 1 0 011 1v1a1 1 0 01-2 0V4a1 1 0 011-1zm5.657 2.343a1 1 0 010 1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 0zM21 11a1 1 0 010 2h-1a1 1 0 010-2h1zM6.343 5.757a1 1 0 011.414 0l.707.707A1 1 0 017.05 7.878l-.707-.707a1 1 0 010-1.414zM12 17a5 5 0 100-10 5 5 0 000 10zm0 2a7 7 0 100-14 7 7 0 000 14zm5.657.343a1 1 0 00-1.414 0l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 000-1.414zM4 11a1 1 0 100 2H3a1 1 0 100-2h1zm1.636 6.364a1 1 0 011.414 1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707zM12 19a1 1 0 011 1v1a1 1 0 01-2 0v-1a1 1 0 011-1z\"/>' : '🌙 Dark Mode';
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     }
 
@@ -167,8 +198,8 @@
     window.onload = () => {
       const saved = localStorage.getItem('theme');
       if (saved === 'dark') {
-        document.documentElement.classList.add('dark-mode');
-        document.getElementById('theme-toggle').textContent = '☀️ Light Mode';
+        document.body.classList.add('dark-mode');
+        document.getElementById('theme-icon').innerHTML = '<path d=\"M12 3a1 1 0 011 1v1a1 1 0 01-2 0V4a1 1 0 011-1zm5.657 2.343a1 1 0 010 1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 0zM21 11a1 1 0 010 2h-1a1 1 0 010-2h1zM6.343 5.757a1 1 0 011.414 0l.707.707A1 1 0 017.05 7.878l-.707-.707a1 1 0 010-1.414zM12 17a5 5 0 100-10 5 5 0 000 10zm0 2a7 7 0 100-14 7 7 0 000 14zm5.657.343a1 1 0 00-1.414 0l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 000-1.414zM4 11a1 1 0 100 2H3a1 1 0 100-2h1zm1.636 6.364a1 1 0 011.414 1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707zM12 19a1 1 0 011 1v1a1 1 0 01-2 0v-1a1 1 0 011-1z\"/>';
       }
     };
   </script>
