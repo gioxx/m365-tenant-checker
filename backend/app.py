@@ -93,8 +93,9 @@ def check_domain():
             })
 
     except requests.RequestException as e:
+        app.logger.error(f"Request to Microsoft Autodiscover failed: {e}")
         return jsonify({
-            'error': str(e),
+            'error': 'An internal error occurred.',
             'found': None,
-            'message': 'Request to Microsoft Autodiscover failed.'
+           'message': 'Request to Microsoft Autodiscover failed.'
         }), 500
