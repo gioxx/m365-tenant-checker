@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Microsoft 365 Tenant Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background: #fff;
+    }
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Microsoft 365 Tenant Checker</h2>
+  <p>Enter a domain to check if it's registered on Microsoft 365.</p>
+  <input type="text" id="domainInput" placeholder="example.com" />
+  <button onclick="checkDomain()">Check</button>
+  <div id="result"></div>
+
+  <script>
+    async function checkDomain() {
+      const domain = document.getElementById('domainInput').value.trim();
+      const result = document.getElementById('result');
+
+      if (!domain) {
+        result.textContent = 'Please enter a domain.';
+        return;
+      }
+
+      result.textContent = 'Checking...';
+
+      try {
+        const response = await fetch(`http://localhost:5000/check?domain=${encodeURIComponent(domain)}`);
+        const data = await response.json();
+
+        if (data.error) {
+          result.textContent = `Error: ${data.message || data.error}`;
+        } else {
+          result.textContent = `${data.domain} → ${data.message}`;
+        }
+      } catch (e) {
+        result.textContent = 'Could not connect to the API. Is it running?';
+      }
+    }
+  </script>
+</body>
+</html>
