@@ -6,7 +6,7 @@ COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY backend/app.py ./app.py
-COPY frontend ./static
+COPY frontend ./frontend
 
 ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
