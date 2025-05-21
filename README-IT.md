@@ -102,4 +102,5 @@ m365-tenant-checker/
 
 ## 📝 Licenza
 
-Distribuito sotto licenza MIT — vedi `LICENSE`.
+Distribuito sotto licenza MIT — vedi `LICENSE`.  
+Le [emoji grafiche](https://github.com/twitter/twemoji/blob/master/assets/svg/1f9e0.svg), utilizzate come favicon nella pagina web, provengono dal progetto open source [Twemoji](https://twemoji.twitter.com/). La grafica è coperta da copyright 2020 di Twitter, Inc. e di altri collaboratori. La grafica è rilasciata sotto licenza [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).
