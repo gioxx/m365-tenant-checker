@@ -1,4 +1,4 @@
-# 🧠 Microsoft 365 Tenant Checker
+# 🤖 Microsoft 365 Tenant Checker
 
 Questo file è [disponibile anche in inglese](README.md).
 
