@@ -103,10 +103,3 @@ m365-tenant-checker/
 ## 📝 License
 
 Distributed under the MIT License — see `LICENSE`.
-
----
-
-## 👤 Author
-
-- 👨‍💻 [Giovanni "Gioxx" Solone](https://github.com/gioxx)
-- 📫 Visit [gioxx.org](https://gioxx.org) or GitHub
