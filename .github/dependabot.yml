@@ -2,7 +2,7 @@ version: 2
 updates:
   # Python dependencies in backend/
   - package-ecosystem: "pip"
-    directory: "/backend"
+    directory: "/"
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 5
@@ -16,6 +16,16 @@ updates:
 
   # Dockerfile in root
   - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "docker"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+  - package-ecosystem: "docker-compose"
     directory: "/"
     schedule:
       interval: "weekly"

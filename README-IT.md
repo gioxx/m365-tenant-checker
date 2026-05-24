@@ -4,9 +4,13 @@ Questo file è [disponibile anche in inglese](README.md).
 
 > Verifica in modo semplice e automatico se un dominio è associato a un tenant Microsoft 365 (Exchange Online, Teams, ecc).
 
-![Docker](https://img.shields.io/badge/Docker-ready-blue?logo=docker)
-![Render](https://img.shields.io/badge/Hosted%20on-Render.com-blueviolet?logo=render)
-![MIT License](https://img.shields.io/github/license/gioxx/m365-tenant-checker)
+[![](https://img.shields.io/badge/Hosted%20on-Render.com-blueviolet?logo=render)](https://m365-tenant-checker.onrender.com/)
+[![](https://img.shields.io/github/issues/gioxx/m365-tenant-checker.svg)](https://github.com/gioxx/m365-tenant-checker/issues)
+[![](https://img.shields.io/github/issues-pr-raw/gioxx/m365-tenant-checker.svg)](https://github.com/gioxx/m365-tenant-checker/pulls)
+[![MIT License](https://img.shields.io/github/license/gioxx/m365-tenant-checker)](https://github.com/gioxx/m365-tenant-checker/blob/main/LICENSE)
+[![](https://img.shields.io/badge/GHCR-available-blue?logo=docker)](https://github.com/users/gioxx/packages/container/package/m365-tenant-checker)
+[![](https://img.shields.io/docker/pulls/gfsolone/m365-tenant-checker.svg)](https://hub.docker.com/r/gfsolone/m365-tenant-checker)
+[![](https://img.shields.io/docker/image-size/gfsolone/m365-tenant-checker/latest.svg)](https://hub.docker.com/r/gfsolone/m365-tenant-checker)
 
 ---
 
@@ -24,7 +28,7 @@ Puoi provare subito la versione online all’indirizzo:
 - 📤 Espone un endpoint API semplice (`/check?domain=...`)
 - 🌐 Interfaccia web minimale (HTML statico) integrata
 - 🐳 Distribuito come container Docker pubblico
-- ☁️ Eseguibile anche su Render.com (free tier)
+- ☁️ Puoi utilizzarlo live anche su Render.com (free tier)
 
 ---
 
